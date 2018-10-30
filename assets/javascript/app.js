@@ -29,7 +29,31 @@ var questions = [
     answerTwo: "Robin",
     answerThree: "Bruce",
     answerFour: "Damian",
-    correct: "Damian",
+    correct: "Damian"
+  },
+  {
+    question: "Which hero goes by the name Arthur Curry?",
+    answerOne: "Captain America",
+    answerTwo: "The Green Lantern",
+    answerThree: "Aquaman",
+    answerFour: "Cyborg",
+    correct: "Aquaman"
+  },
+  {
+    question: "How many Infinity Stones are there?",
+    answerOne: "4",
+    answerTwo: "6",
+    answerThree: "3",
+    answerFour: "5",
+    correct: "6"
+  },
+  {
+    question: "Which hero goes by the name Arthur Curry?",
+    answerOne: "Captain America",
+    answerTwo: "The Green Lantern",
+    answerThree: "Aquaman",
+    answerFour: "Cyborg",
+    correct: "Aquaman"
   }
 ];
 
