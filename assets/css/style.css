@@ -32,3 +32,14 @@ main h1 {
   border-radius: 10px;
   width: 70%;
 }
+
+.buttons button:hover {
+  cursor: pointer;
+  position: relative;
+  top: -3px;
+  background-color: #700070;
+}
+
+button:focus {
+outline: none;
+}
