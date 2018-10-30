@@ -22,6 +22,14 @@ var questions = [
     answerThree: "1973",
     answerFour: "1949",
     correct: "1962",
+  },
+  {
+    question: "Batman has a son and his name is...?",
+    answerOne: "Alfred",
+    answerTwo: "Robin",
+    answerThree: "Bruce",
+    answerFour: "Damian",
+    correct: "Damian",
   }
 ];
 
