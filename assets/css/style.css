@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+
 body {
   background-image: url("../images/superhero_wallpaper.jpg");
 }
@@ -22,7 +24,8 @@ h1 {
   background: #fff;
   border-radius: 10px;
   margin-bottom: 60px;
-  font-family: sans-serif;
+  font-family: 'Baloo Bhaijaan', sans-serif;
+  font-size: 40px;
 }
 
 .buttons {
@@ -34,7 +37,7 @@ h1 {
 
 .buttons button {
   color: #fff;
-  background-color: purple;
+  background-color: #050099;
   padding: 20px;
   font-size: 30px;
   border: 2px solid white;
@@ -47,7 +50,7 @@ h1 {
   cursor: pointer;
   position: relative;
   top: -3px;
-  background-color: #700070;
+  background-color: #100075;
 }
 
 button:focus {
