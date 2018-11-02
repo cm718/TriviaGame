@@ -2,21 +2,27 @@ body {
   background-image: url("../images/superhero_wallpaper.jpg");
 }
 
+.hide {
+  display: none;
+}
+
 main {
   width: 67%;
   background-color: rgba(255, 255, 255, .6);
-  height: 85vh;
+  height: 95vh;
   margin: 0 auto;
   border-radius: 10px;
 }
 
-main h1 {
-  color: #000;
+h1 {
+  color: #100088;
+  font-weight: 900;
   text-align: center;
   padding: 30px;
   background: #fff;
   border-radius: 10px;
   margin-bottom: 60px;
+  font-family: sans-serif;
 }
 
 .buttons {
@@ -34,6 +40,7 @@ main h1 {
   border: 2px solid white;
   border-radius: 10px;
   width: 70%;
+  margin: 10px;
 }
 
 .buttons button:hover {

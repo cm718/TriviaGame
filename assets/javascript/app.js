@@ -1,67 +1,71 @@
 var questions = [
   {
     question: "What is Superman's greatest weakness?",
-    answerOne: "Blue cheese",
-    answerTwo: "Kryptonite",
-    answerThree: "Gambling",
-    answerFour: "Lois Lane",
+    answers: ["Blue cheese", "Kryptonite", "Gambling", "Lois Lane"],
     correct: "Lois Lane",
   },
   {
     question: "What is Dick Grayson's secret identity?",
-    answerOne: "Martian Manhunter",
-    answerTwo: "Green Arrow",
-    answerThree: "Nightwing",
-    answerFour: "Aquaman",
+    answers: ["Martian Manhunter", "Green Arrow", "Nightwing", "Aquaman"],
     correct: "Nightwing",
   },
   {
     question: "What year did Spider-man make his debut?",
-    answerOne: "1951",
-    answerTwo: "1962",
-    answerThree: "1973",
-    answerFour: "1949",
+    answers: ["1951", "1962", "1973", "1949"],
     correct: "1962",
   },
   {
     question: "Batman has a son and his name is...?",
-    answerOne: "Alfred",
-    answerTwo: "Robin",
-    answerThree: "Bruce",
-    answerFour: "Damian",
+    answers: ["Alfred", "Robin", "Bruce", "Damian"],
     correct: "Damian"
   },
   {
     question: "Which hero goes by the name Arthur Curry?",
-    answerOne: "Captain America",
-    answerTwo: "The Green Lantern",
-    answerThree: "Aquaman",
-    answerFour: "Cyborg",
+    answers: ["Captain America", "The Green Lantern", "Aquaman", "Cyborg"],
     correct: "Aquaman"
   },
   {
     question: "How many Infinity Stones are there?",
-    answerOne: "4",
-    answerTwo: "6",
-    answerThree: "3",
-    answerFour: "5",
+    answers: ["4", "6", "3", "5"],
     correct: "6"
   },
   {
-    question: "Which hero goes by the name Arthur Curry?",
-    answerOne: "Captain America",
-    answerTwo: "The Green Lantern",
-    answerThree: "Aquaman",
-    answerFour: "Cyborg",
+    question: "What is the home land of Wonder Woman?",
+    answers: ["Captain America", "The Green Lantern", "Aquaman", "Cyborg"],
     correct: "Aquaman"
   }
 ];
+var counter = -1;
 
-function askEach() {
-  for (i = 0; i < questions.length; i++){
-    console.log(questions[i].question);
-    console.log(`Answer: ${questions[i].correct}`);
-  }
-}
 
-askEach();
+
+// When the user clicks begin -- display first question and answers
+// Run the function on the click
+  $("#begin").on("click", function(){
+    // Increase the question counter by one
+      counter++;
+      // Replace the #question h1 with the new question
+      $("#question").text(`${questions[counter].question}`);
+      // log out the question for debugging purposes
+      console.log(questions[counter].question);
+      // loop through the four answers to be able to print them on the page
+      for (i = 0; i < 4; i++){
+      // log the answers for debugging
+      console.log(`Answer: ${questions[counter].answers[i]}`);
+      // print the four answers to the page as buttons
+      $("#begin").css("display", "none");
+      $(".buttons").append(`<button>${questions[counter].answers[i]}</button>`);
+    }
+    });
+
+
+
+
+// function askEach() {
+//   for (i = 0; i < questions.length; i++){
+//     console.log(questions[i].question);
+//     console.log(`Answer: ${questions[i].correct}`);
+//   }
+// }
+
+// askEach();
