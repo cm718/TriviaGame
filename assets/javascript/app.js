@@ -30,42 +30,34 @@ var questions = [
     correct: "6"
   },
   {
-    question: "What is the home land of Wonder Woman?",
-    answers: ["Captain America", "The Green Lantern", "Aquaman", "Cyborg"],
+    question: "What is the name of Wonder Woman's home?",
+    answers: ["Gotham City", "Metropolis", "New York City", "Themyscira"],
     correct: "Aquaman"
+  },
+  {
+    question: "What is the name of Thor's hammer?",
+    answers: ["Molaris", "Mjolnir", "Majorin", "Marjory"],
+    correct: "Mjolnir"
   }
 ];
 var counter = -1;
-
-
 
 // When the user clicks begin -- display first question and answers
 // Run the function on the click
   $("#begin").on("click", function(){
     // Increase the question counter by one
       counter++;
+      // Start a 10 second timer
+
+      // Display the timer on the page
+
       // Replace the #question h1 with the new question
       $("#question").text(`${questions[counter].question}`);
-      // log out the question for debugging purposes
-      console.log(questions[counter].question);
       // loop through the four answers to be able to print them on the page
       for (i = 0; i < 4; i++){
-      // log the answers for debugging
-      console.log(`Answer: ${questions[counter].answers[i]}`);
       // print the four answers to the page as buttons
       $("#begin").css("display", "none");
-      $(".buttons").append(`<button>${questions[counter].answers[i]}</button>`);
+      $(".buttons").append(`<button id="${questions[counter].answers[i]}">
+      ${questions[counter].answers[i]}</button>`);
     }
     });
-
-
-
-
-// function askEach() {
-//   for (i = 0; i < questions.length; i++){
-//     console.log(questions[i].question);
-//     console.log(`Answer: ${questions[i].correct}`);
-//   }
-// }
-
-// askEach();
