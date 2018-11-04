@@ -24,12 +24,6 @@ var questions = [
     gif: "https://media.tenor.com/images/74e029981aab2da0c51b2edaea618717/tenor.gif"
   },
   {
-    question: "Which hero goes by the name Arthur Curry?",
-    answers: ["Captain America", "The Green Lantern", "Aquaman", "Cyborg"],
-    correct: "Aquaman",
-    gif: "https://media.giphy.com/media/qBvHZHgiUmWBi/giphy.gif"
-  },
-  {
     question: "How many Infinity Stones are there?",
     answers: ["4", "6", "3", "5"],
     correct: "6",
@@ -46,10 +40,17 @@ var questions = [
     answers: ["Molaris", "Mjolnir", "Majorin", "Marjory"],
     correct: "Mjolnir",
     gif: "https://i.gifer.com/3T4w.gif"
+  },
+  {
+    question: "Which hero goes by the name Arthur Curry?",
+    answers: ["Captain America", "The Green Lantern", "Aquaman", "Cyborg"],
+    correct: "Aquaman",
+    gif: "https://media.giphy.com/media/qBvHZHgiUmWBi/giphy.gif"
   }
 ];
 var correctAnswers = 0;
 var wrongAnswers = 0;
+var timer;
 
 // function to call to reset the game
 function resetGame(){
@@ -60,19 +61,24 @@ function resetGame(){
   newQuestions();
 }
 
+function stopTimer(){
+  clearTimeout(timer);
+}
+
 // check if the answer they pick is correct and go to answer page
 function checkAnswer() {
+  stopTimer();
   var clicked;
   // set the clicked variable to the text of the button for checking purposes
   clicked = $(this).text();
   if (clicked === questions[counter].correct) {
     // if their choice was correct display "correct"
-    $("#question").text(`Correct! The correct answer is: ${clicked}`)
+    $("#question").text(`Correct! The answer was: ${clicked}`)
     correctAnswers++;
     // Check if their choice was wrong
-  } else if (clicked !== questions[counter].correct) {
+  } else {
     // Replace the h1 text with "False..."
-    $("#question").text(`False! The correct answer is: ${questions[counter].correct}`)
+    $("#question").text(`Oops! The correct answer is: ${questions[counter].correct}`)
     wrongAnswers++;
   }
   // Remove the buttons or gif from the page
@@ -82,13 +88,10 @@ function checkAnswer() {
   // Increase the counter to prepare for the next page
   if (counter < 7){
     counter++;
-    console.log(counter);
-    console.log(`in if`);
     // Set a 5 second timer before going to the next question
     setTimeout(newQuestions, 3500);
   } else {
     setTimeout(endGame, 3500)
-    console.log(`in else`);
     endGame();
   }
 }
@@ -127,6 +130,9 @@ function newQuestions(){
     // print the four answers to the page as buttons
     $(".buttons").append(`<button>${questions[counter].answers[i]}</button>`);
   }
+  // Set a 10 second timer
+  timer = setTimeout(checkAnswer, 10000);
+
   // When you click on one of the buttons run the checkAnswer function
   $("button").on("click", checkAnswer);
 }
