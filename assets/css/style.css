@@ -11,7 +11,7 @@ body {
 main {
   width: 67%;
   background-color: rgba(255, 255, 255, .6);
-  height: 95vh;
+  height: 800px;
   margin: 0 auto;
   border-radius: 10px;
 }
@@ -26,6 +26,16 @@ h1 {
   margin-bottom: 60px;
   font-family: 'Baloo Bhaijaan', sans-serif;
   font-size: 40px;
+}
+
+h2 {
+  color: #100088;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 20px;
+  font-family: 'Baloo Bhaijaan', sans-serif;
+  font-size: 40px;
+  margin-top: 0;
 }
 
 .buttons {
