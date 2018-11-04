@@ -1,7 +1,7 @@
 var questions = [
   {
     question: "What is Superman's greatest weakness?",
-    answers: ["Blue cheese", "Kryptonite", "Gambling", "Lois Lane"],
+    answers: ["Lois Lane", "Kryptonite", "Gambling", "Carbonite"],
     correct: "Lois Lane",
     gif: "https://media.giphy.com/media/r15bE8MAPG22s/source.gif"
   },
@@ -39,7 +39,7 @@ var questions = [
     question: "What is the name of Wonder Woman's home?",
     answers: ["Gotham City", "Metropolis", "New York City", "Themyscira"],
     correct: "Themyscira",
-    gif: "https://66.media.tumblr.com/00c9adcfd99addcac8b619e8762fbe8a/tumblr_ork6ay6joK1uyyw3jo1_500.gif"
+    gif: "https://media.giphy.com/media/26AHxw0Zd7QLrNDzy/giphy.gif"
   },
   {
     question: "What is the name of Thor's hammer?",
@@ -48,29 +48,32 @@ var questions = [
     gif: "https://i.gifer.com/3T4w.gif"
   }
 ];
-var counter = -1;
-var clicked;
 var correctAnswers = 0;
 var wrongAnswers = 0;
 
+// function to call to reset the game
+function resetGame(){
+  $(".buttons").empty();
+  counter = 0;
+  correctAnswers = 0;
+  wrongAnswers = 0;
+  newQuestions();
+}
+
 // check if the answer they pick is correct and go to answer page
 function checkAnswer() {
+  var clicked;
   // set the clicked variable to the text of the button for checking purposes
   clicked = $(this).text();
-  console.log(clicked);
   if (clicked === questions[counter].correct) {
     // if their choice was correct display "correct"
     $("#question").text(`Correct! The correct answer is: ${clicked}`)
     correctAnswers++;
-    console.log(`Right: ${correctAnswers}`);
-    console.log(`Wrong: ${wrongAnswers}`);
     // Check if their choice was wrong
   } else if (clicked !== questions[counter].correct) {
     // Replace the h1 text with "False..."
     $("#question").text(`False! The correct answer is: ${questions[counter].correct}`)
     wrongAnswers++;
-    console.log(`Right: ${correctAnswers}`);
-    console.log(`Wrong: ${wrongAnswers}`);
   }
   // Remove the buttons or gif from the page
   $(".buttons").empty();
@@ -78,26 +81,39 @@ function checkAnswer() {
   $(".buttons").append(`<img src="${questions[counter].gif}" alt="gif">`);
   // Increase the counter to prepare for the next page
   if (counter < 7){
-    console.log('in if');
     counter++;
     console.log(counter);
-    // Set a 10 second timer before going to the next question
-    setTimeout(newQuestions, 1000);
+    console.log(`in if`);
+    // Set a 5 second timer before going to the next question
+    setTimeout(newQuestions, 3500);
   } else {
-    console.log('in else');
-
+    setTimeout(endGame, 3500)
+    console.log(`in else`);
     endGame();
   }
-
 }
 
 // Run this function when the game is over
 function endGame(){
   $(".buttons").empty();
-  // Display their total correct answers
-  $("#question").text(`Call the Justice League...`);
-  $(".buttons").append(`<h2>You got ${correctAnswers} right!</h2>`)
-  $(".buttons").append(`<h2>You got ${wrongAnswers} wrong!</h2>`)
+  // If the user gets more than 6 correct show this
+  if (correctAnswers > 6){
+    $("#question").text(`Wow! I hear the Avengers are hiring.`);
+    $(".buttons").append(`<img src="https://media.giphy.com/media/weOqNCGrxFEqI/giphy.gif">`)
+  }
+  // If the user gets 6 or less correct show this
+  else if (correctAnswers < 7) {
+    $("#question").text(`Ouch! Call the Justice League...`);
+    $(".buttons").append(`<img src="https://gifimage.net/wp-content/uploads/2017/12/justice-league-gif-6.gif">`)
+  }
+  // Either way show number of correct answers
+  $(".buttons").append(`<h2>You got ${correctAnswers} right!</h2>`);
+  // Show the number of wrong answers
+  $(".buttons").append(`<h2>You got ${wrongAnswers} wrong!</h2>`);
+  // Show a button asking if they would like to play again
+  $(".buttons").append(`<button id="begin">Play again?</button>`);
+  // Add a click listener for the play again button
+  $("#begin").on("click", resetGame);
 }
 
 // Function puts out new questions from the object
@@ -115,28 +131,5 @@ function newQuestions(){
   $("button").on("click", checkAnswer);
 }
 
-
 // When the user clicks begin -- display first question and answers
-// Run the function on the click
-$("#begin").on("click", function() {
-  $(".buttons").empty();
-  // Increase the question counter by one
-  counter++;
-  clicked = $(this).text();
-  console.log(clicked);
-  console.log(counter);
-  // Start a 10 second timer
-
-  // Display the timer on the page
-
-newQuestions();
-
-});
-
-
-
-// else display "false"
-//
-// display "the correct answer is: answer"
-//
-// display a related gif from the object
+$("#begin").on("click", resetGame);
