@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var questions = [
   {
     question: "What is Superman's greatest weakness?",
@@ -51,6 +53,7 @@ var questions = [
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var timer;
+var counter;
 
 // function to call to reset the game
 function resetGame(){
@@ -139,3 +142,6 @@ function newQuestions(){
 
 // When the user clicks begin -- display first question and answers
 $("#begin").on("click", resetGame);
+
+
+});
