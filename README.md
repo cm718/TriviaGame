@@ -1,6 +1,6 @@
 # TriviaGame
 
-A trivia game that uses javascript timeout methods and the Giphy Api plus my love of all things comic book super heroes. I incorporated Marvel and DC. 
+A trivia game that uses javascript timeout methods and gifs plus my love of all things comic book super heroes. I incorporated Marvel and DC. 
 
 Here is the link: https://cm718.github.io/TriviaGame/
 
